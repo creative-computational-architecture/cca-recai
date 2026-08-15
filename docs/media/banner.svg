@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="CCA-RECAI - evidence-first Windows doctor">
+  <rect width="1200" height="300" fill="#1A1A1A"/>
+  <!-- teknik cizim izgarasi -->
+  <g stroke="#F5F5F5" stroke-opacity="0.05" stroke-width="1">
+    <path d="M0 75h1200M0 150h1200M0 225h1200"/>
+    <path d="M150 0v300M300 0v300M450 0v300M600 0v300M750 0v300M900 0v300M1050 0v300"/>
+  </g>
+  <!-- cca-mono uc-ark isareti (sirket) -->
+  <g transform="translate(80,58) scale(0.32)" fill="none" stroke="#F5F5F5" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M 112 5 L 50 5 A 45 45 0 0 0 50 95 L 112 95"/>
+    <path d="M 237 5 L 175 5 A 45 45 0 0 0 175 95 L 237 95"/>
+    <path d="M 362 5 L 300 5 A 45 45 0 0 0 300 95 L 362 95 L 362 5 Z"/>
+  </g>
+  <!-- ayirici -->
+  <path d="M220 62 L220 94" stroke="#F5F5F5" stroke-opacity="0.28" stroke-width="1"/>
+  <!-- RECAI wordmark (I araligi duzeltilmis) -->
+  <g transform="translate(80,120) scale(1.02)" fill="none" stroke="#F5F5F5" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M 5 95 L 5 5 L 67 5 A 22.5 22.5 0 0 1 67 50 L 5 50 M 55 50 L 112 95"/>
+    <path d="M 237 5 L 130 5 L 130 95 L 237 95 M 130 50 L 205 50"/>
+    <path d="M 362 5 L 300 5 A 45 45 0 0 0 300 95 L 362 95"/>
+    <path d="M 380 95 L 433 5 L 487 95 M 401 62 L 466 62"/>
+    <path d="M 505 5 L 505 95"/>
+  </g>
+  <!-- nabiz cizgisi -->
+  <polyline points="700,160 760,160 790,120 820,190 850,140 880,160 1120,160"
+    fill="none" stroke="#C8102E" stroke-width="3" stroke-linejoin="miter"/>
+  <!-- tagline -->
+  <text x="82" y="262" fill="#A8A8A8" font-family="'JetBrains Mono','Cascadia Mono',Consolas,monospace" font-size="17" letter-spacing="5">
+    EVIDENCE-FIRST WINDOWS DOCTOR &#183; LOCAL ONLY &#183; NO TELEMETRY
+  </text>
+</svg>

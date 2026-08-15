@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 100" role="img" aria-label="RECAI">
+  <!-- Kaynak: RECAI UI mockups handoff wordmark. Tek degisiklik: I harfi
+       x=558 -> x=505 (harf araligi 18 birime esitlendi), viewBox 620 -> 510. -->
+  <g fill="none" stroke="#1A1A1A" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M 5 95 L 5 5 L 67 5 A 22.5 22.5 0 0 1 67 50 L 5 50 M 55 50 L 112 95"/>
+    <path d="M 237 5 L 130 5 L 130 95 L 237 95 M 130 50 L 205 50"/>
+    <path d="M 362 5 L 300 5 A 45 45 0 0 0 300 95 L 362 95"/>
+    <path d="M 380 95 L 433 5 L 487 95 M 401 62 L 466 62"/>
+    <path d="M 505 5 L 505 95"/>
+  </g>
+</svg>

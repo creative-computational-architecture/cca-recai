@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="tr" dir="ltr" data-tema="koyu">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CCA-RECAI</title>
+    <link rel="icon" href="/recai.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="app">
+      <!-- ---------- TITLEBAR ---------- -->
+      <!-- data-tauri-drag-region: masaustu kabugunda pencere buradan surunur.
+           Tarayicida zararsiz bir nitelik olarak durur. -->
+      <header class="titlebar" data-tauri-drag-region>
+        <span class="lockup">
+          <svg class="mark" viewBox="0 0 367 100" width="40" height="11" aria-label="CCA">
+            <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter">
+              <path d="M 112 5 L 50 5 A 45 45 0 0 0 50 95 L 112 95"/>
+              <path d="M 237 5 L 175 5 A 45 45 0 0 0 175 95 L 237 95"/>
+              <path d="M 362 5 L 300 5 A 45 45 0 0 0 300 95 L 362 95 L 362 5 Z"/>
+            </g>
+          </svg>
+          <span class="lockup-divider"></span>
+          <svg class="wordmark" viewBox="0 0 510 100" width="56" height="11" aria-label="RECAI">
+            <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter">
+              <path d="M 5 95 L 5 5 L 67 5 A 22.5 22.5 0 0 1 67 50 L 5 50 M 55 50 L 112 95"/>
+              <path d="M 237 5 L 130 5 L 130 95 L 237 95 M 130 50 L 205 50"/>
+              <path d="M 362 5 L 300 5 A 45 45 0 0 0 300 95 L 362 95"/>
+              <path d="M 380 95 L 433 5 L 487 95 M 401 62 L 466 62"/>
+              <path d="M 505 5 L 505 95"/>
+            </g>
+          </svg>
+        </span>
+
+        <nav class="menu">
+          <span data-i18n="mDosya">dosya</span>
+          <span data-i18n="mGorunum">görünüm</span>
+          <span data-i18n="mKoruma">koruma</span>
+          <span data-i18n="mYardim">yardım</span>
+        </nav>
+
+        <div class="lang-strip" id="lang-strip" role="group" aria-label="Dil"></div>
+
+        <button class="chip-button" id="tema-toggle">açık</button>
+
+        <div class="win-buttons">
+          <button class="win-button" id="win-min" aria-label="Simge durumuna kucult">
+            <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M2 6h8" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <button class="win-button" id="win-max" aria-label="Buyut">
+            <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><rect x="2.5" y="2.5" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <button class="win-button" id="win-close" aria-label="Kapat">
+            <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M3 3l6 6m0-6l-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- ---------- BODY ---------- -->
+      <div class="body">
+        <nav class="rail" aria-label="Bolumler">
+          <p class="rail-heading">// <span data-i18n="grupKontrol">kontrol</span></p>
+          <button class="rail-item" data-goto="nabiz">
+            <span class="rail-index">{N}</span><span data-i18n="nabiz">nabız</span><span class="rail-dot"></span>
+          </button>
+          <button class="rail-item" data-goto="sensor">
+            <span class="rail-index">{S}</span><span data-i18n="sensor">sensör</span><span class="rail-dot"></span>
+          </button>
+
+          <p class="rail-heading divided">// <span data-i18n="grupBakim">bakım</span></p>
+          <button class="rail-item" data-goto="temizlik">
+            <span class="rail-index">{T}</span><span data-i18n="temizlik">temizlik</span><span class="rail-dot"></span>
+          </button>
+          <button class="rail-item" data-goto="proses">
+            <span class="rail-index">{P}</span><span data-i18n="proses">proses</span><span class="rail-dot"></span>
+          </button>
+          <button class="rail-item" disabled>
+            <span class="rail-index">{B}</span><span data-i18n="baslangic">başlangıç</span><span class="rail-soon">—</span>
+          </button>
+
+          <p class="rail-heading divided">// <span data-i18n="grupKayit">kayıt</span></p>
+          <button class="rail-item" data-goto="log">
+            <span class="rail-index">{L}</span><span data-i18n="log">log</span><span class="rail-dot"></span>
+          </button>
+          <button class="rail-item" disabled>
+            <span class="rail-index">{A}</span><span data-i18n="aiDoktor">AI doktor</span><span class="rail-soon">—</span>
+          </button>
+          <button class="rail-item" data-goto="lisans">
+            <span class="rail-index">{K}</span><span data-i18n="lisans">lisans · kaynak</span><span class="rail-dot"></span>
+          </button>
+
+          <div class="support">
+            <p class="mono-heading">// <span data-i18n="destek">destek</span></p>
+            <div class="support-inner">
+            <p class="support-copy" data-i18n="destekMetin">RECAI ücretsiz ve açık kaynak. Bağış bir özellik açmaz; sadece geliştirmeyi sürdürür.</p>
+            <!-- lang="en": marka adlari Ingilizce buyuk harf kuralina gore
+                 donusur. lang="tr" altinda kucuk "i" -> "İ" olur (GİTHUB). -->
+            <a class="support-link" lang="en" href="https://github.com/sponsors" target="_blank" rel="noreferrer noopener"><span>GitHub sponsors</span><span class="arrow">→</span></a>
+            <a class="support-link" lang="en" href="https://buymeacoffee.com" target="_blank" rel="noreferrer noopener"><span>buy me a coffee</span><span class="arrow">→</span></a>
+            <button class="support-link" id="iban-copy"><span data-i18n="ibanKopyala">IBAN · kopyala</span><span class="arrow">→</span></button>
+            <p class="support-note" data-i18n="destekNot">bağış zorunlu değil · kilitli özellik yok · reklam yok</p>
+            </div>
+          </div>
+
+          <div class="guard">
+            <button class="guard-row" id="guard-toggle" role="switch" aria-checked="false">
+              <span class="guard-track"><span class="guard-knob"></span></span>
+              <span class="guard-label">auto guard</span>
+            </button>
+            <p class="guard-note" id="guard-note" data-i18n="guardKapali">kapalı — hiçbir proses otomatik kapatılmaz.</p>
+          </div>
+        </nav>
+
+        <main class="sheet-area">
+          <section class="sheet">
+            <header class="sheet-head">
+              <div class="sheet-head-copy">
+                <p class="mono-eyebrow"><span id="sheet-index">{N}</span> · <span id="sheet-eyebrow">nabız</span></p>
+                <h1 id="sheet-title">Nabız</h1>
+                <p class="mono-meta"><span id="sheet-machine">—</span> · <span id="sheet-time">—</span></p>
+                <p class="sheet-explain" id="sheet-explain"></p>
+              </div>
+              <div class="sheet-head-score">
+                <p class="mono-label" id="score-label" data-i18n="saglikSkoru">sağlık skoru</p>
+                <p class="score-line"><span class="score" id="score-value">--</span><span class="score-unit" id="score-unit">/100</span></p>
+              </div>
+            </header>
+
+            <div class="band" id="band">
+              <span class="band-marker"></span>
+              <strong class="band-word" id="band-word">—</strong>
+              <span class="band-divider"></span>
+              <p class="band-copy" id="band-copy"></p>
+              <button class="band-action" id="band-action"></button>
+            </div>
+
+            <div class="screen-body" id="screen-body"></div>
+          </section>
+        </main>
+      </div>
+
+      <!-- ---------- STATUS BAR ---------- -->
+      <footer class="statusbar">
+        <span class="status-square" id="status-square"></span>
+        <span id="status-recai">recai: ölçümler geliyor.</span>
+        <span class="status-muted" id="status-readout">—</span>
+        <span class="status-right">
+          <span class="status-square ok"></span>
+          <span data-i18n="planSatiri">açık kaynak · mit</span>
+          <span class="status-muted" data-i18n="yerel">yerel · 127.0.0.1 · kanıt önce</span>
+          <span class="status-muted">v0.1.0</span>
+        </span>
+      </footer>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

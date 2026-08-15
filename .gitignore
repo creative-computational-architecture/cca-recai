@@ -1,0 +1,15 @@
+node_modules/
+data/*.jsonl
+data/*.md
+data/*.tmp
+data/settings.json
+coverage/
+.env
+npm-debug.log*
+src-tauri/target/
+src-tauri/binaries/
+src-tauri/gen/
+src-tauri/app/
+dist/
+*.zip
+rhino_gh_mcp.log

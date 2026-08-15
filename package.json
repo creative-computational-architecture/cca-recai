@@ -1,0 +1,38 @@
+{
+  "name": "cca-recai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Evidence-first local health monitor and recovery doctor for Windows. No cloud, no telemetry, no account.",
+  "keywords": [
+    "windows",
+    "system-monitor",
+    "task-manager",
+    "cpu",
+    "temperature",
+    "disk-cleanup",
+    "tauri",
+    "local-first"
+  ],
+  "author": "Caglar Celik Architects",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "check": "node --check src/server.js && node --check src/monitor.js && node --check src/audit.js && node --check src/ai.js && node --check public/app.js",
+    "test": "node --test",
+    "app": "tauri dev",
+    "app:stage": "node scripts/stage-app.mjs",
+    "app:build": "node scripts/stage-app.mjs && tauri build",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "systeminformation": "5.33.1"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.11.4"
+  }
+}

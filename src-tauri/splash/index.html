@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>CCA-RECAI</title>
+    <style>
+      :root {
+        --paper: #f5f5f5;
+        --ink: #1a1a1a;
+        --line: rgba(26, 26, 26, 0.28);
+        --red: #c8102e;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --paper: #1a1a1a;
+          --ink: #f5f5f5;
+          --line: rgba(245, 245, 245, 0.28);
+        }
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      .mark {
+        width: 96px;
+        height: 96px;
+        position: relative;
+        border: 1px solid var(--line);
+      }
+      .mark::before,
+      .mark::after {
+        content: "";
+        position: absolute;
+        background: var(--red);
+      }
+      .mark::before {
+        left: 50%;
+        top: 18%;
+        width: 14px;
+        height: 64%;
+        transform: translateX(-50%);
+      }
+      .mark::after {
+        top: 50%;
+        left: 18%;
+        height: 14px;
+        width: 64%;
+        transform: translateY(-50%);
+      }
+      h1 {
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+      }
+      p {
+        font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        opacity: 0.72;
+        max-width: 460px;
+        text-align: center;
+        line-height: 1.7;
+      }
+      .bar {
+        width: 220px;
+        height: 2px;
+        background: var(--line);
+        overflow: hidden;
+      }
+      .bar span {
+        display: block;
+        height: 100%;
+        width: 36%;
+        background: var(--red);
+        animation: sweep 1.15s ease-in-out infinite;
+      }
+      @keyframes sweep {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(280%); }
+      }
+      body.failed .bar { display: none; }
+      body.failed p { color: var(--red); opacity: 1; }
+    </style>
+  </head>
+  <body>
+    <div class="mark"></div>
+    <h1>CCA-RECAI</h1>
+    <div class="bar"><span></span></div>
+    <p id="status">Sistem doktoru başlatılıyor. Sensörler ve süreç listesi hazırlanıyor.</p>
+    <script>
+      window.recaiFailed = function (message) {
+        document.body.classList.add("failed");
+        document.getElementById("status").textContent =
+          "Başlatılamadı: " + message + " — Uygulamayı kapatıp yeniden açın.";
+      };
+    </script>
+  </body>
+</html>

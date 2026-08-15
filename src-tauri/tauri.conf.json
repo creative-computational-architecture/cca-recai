@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "CCA-RECAI",
+  "version": "0.1.0",
+  "identifier": "works.caglarcelik.recai",
+  "build": {
+    "frontendDist": "splash"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "Caglar Celik Architects",
+    "copyright": "Caglar Celik Architects",
+    "category": "Utility",
+    "shortDescription": "Yerel Windows saglik doktoru",
+    "longDescription": "CCA-RECAI, Windows icin yerel calisan, kanit odakli sistem saglik izleyicisi.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "externalBin": ["binaries/recai-node"],
+    "resources": ["app"],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["turkish", "english"]
+      }
+    }
+  }
+}
